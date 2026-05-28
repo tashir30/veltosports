@@ -1,0 +1,49 @@
+[
+  {
+    "id": "R1",
+    "author": "Aisha K.",
+    "rating": 5,
+    "text": "Sky Fighter Pro handles like a dream. WhatsApp ordering was super quick and it arrived in perfect shape.",
+    "productId": "K101",
+    "date": "2025-12-10"
+  },
+  {
+    "id": "R2",
+    "author": "Marco D.",
+    "rating": 5,
+    "text": "Best fighter kite I've owned. The build quality is obvious the moment you unpack it.",
+    "productId": "K102",
+    "date": "2025-11-28"
+  },
+  {
+    "id": "R3",
+    "author": "Priya S.",
+    "rating": 4,
+    "text": "Rainbow Festival Delta was a hit at our family picnic. Kids loved it!",
+    "productId": "K301",
+    "date": "2025-12-05"
+  },
+  {
+    "id": "R4",
+    "author": "James L.",
+    "rating": 5,
+    "text": "Goldcrest Elite is stunning. Knite Kites answered all my questions on WhatsApp before I ordered.",
+    "productId": "K201",
+    "date": "2025-10-20"
+  },
+  {
+    "id": "R5",
+    "author": "Elena R.",
+    "rating": 5,
+    "text": "Fast shipping worldwide. Apex Competition X performed flawlessly at my regional meet.",
+    "productId": "K401",
+    "date": "2025-09-15"
+  },
+  {
+    "id": "R6",
+    "author": "Tom H.",
+    "rating": 5,
+    "text": "Professional catalog, easy ordering. I'll be back for more from the International Collection.",
+    "date": "2025-11-01"
+  }
+]

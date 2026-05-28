@@ -1,0 +1,150 @@
+[
+  {
+    "id": "K101",
+    "name": "Sky Fighter Pro",
+    "price": 250,
+    "description": "The Sky Fighter Pro is our flagship fighter kite engineered for aggressive cuts and stable high-wind flight. Hand-tuned spars and premium ripstop deliver tournament-level performance for serious pilots.",
+    "shortDescription": "High flying fighter kite with premium ripstop sail.",
+    "category": "Fighter Kites",
+    "size": "Medium",
+    "featured": true,
+    "images": ["/products/k101-1.svg", "/products/k101-2.svg"],
+    "youtube": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "specifications": {
+      "material": "Ripstop nylon",
+      "frame": "Carbon fiber",
+      "windRange": "8–25 mph",
+      "lineIncluded": "200 ft braided line",
+      "weight": "320 g"
+    },
+    "createdAt": "2025-11-01"
+  },
+  {
+    "id": "K102",
+    "name": "Crimson Striker",
+    "price": 189,
+    "description": "A bold red fighter kite with responsive handling and reinforced leading edges. Ideal for intermediate pilots stepping into competitive flying.",
+    "shortDescription": "Responsive fighter kite for intermediate pilots.",
+    "category": "Fighter Kites",
+    "size": "Small",
+    "featured": true,
+    "images": ["/products/k102-1.svg"],
+    "youtube": "",
+    "specifications": {
+      "material": "Ripstop polyester",
+      "frame": "Fiberglass",
+      "windRange": "6–18 mph",
+      "lineIncluded": "150 ft line",
+      "weight": "280 g"
+    },
+    "createdAt": "2025-10-15"
+  },
+  {
+    "id": "K201",
+    "name": "Goldcrest Elite",
+    "price": 420,
+    "description": "Luxury gold-trimmed premium kite with hand-painted details and a velvet storage sleeve. A centerpiece for collectors and display flying.",
+    "shortDescription": "Luxury collector kite with hand-painted details.",
+    "category": "Premium Kites",
+    "size": "Large",
+    "featured": true,
+    "images": ["/products/k201-1.svg", "/products/k201-2.svg"],
+    "specifications": {
+      "material": "Silk-blend sail",
+      "frame": "Bamboo composite",
+      "windRange": "5–15 mph",
+      "lineIncluded": "Premium silk line",
+      "weight": "450 g"
+    },
+    "createdAt": "2025-09-20"
+  },
+  {
+    "id": "K301",
+    "name": "Rainbow Festival Delta",
+    "price": 75,
+    "description": "A vibrant delta kite that soars effortlessly in light winds. Perfect for picnics, beach days, and festival weekends with the whole family.",
+    "shortDescription": "Colorful delta kite for light-wind fun.",
+    "category": "Festival Kites",
+    "size": "Large",
+    "featured": false,
+    "images": ["/products/k301-1.svg"],
+    "specifications": {
+      "material": "Polyester",
+      "frame": "Fiberglass",
+      "windRange": "4–12 mph",
+      "lineIncluded": "100 ft line",
+      "weight": "210 g"
+    },
+    "createdAt": "2025-12-01"
+  },
+  {
+    "id": "K401",
+    "name": "Apex Competition X",
+    "price": 310,
+    "description": "Tournament-tuned competition kite with precision balance and minimal drag. Used by regional champions for precision and endurance events.",
+    "shortDescription": "Tournament-tuned kite for precision events.",
+    "category": "Competition Kites",
+    "size": "Medium",
+    "featured": true,
+    "images": ["/products/k401-1.svg"],
+    "youtube": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "specifications": {
+      "material": "High-density ripstop",
+      "frame": "Carbon ultra-light",
+      "windRange": "10–28 mph",
+      "lineIncluded": "Competition reel + 250 ft line",
+      "weight": "295 g"
+    },
+    "createdAt": "2025-08-10"
+  },
+  {
+    "id": "K501",
+    "name": "Little Cloud",
+    "price": 35,
+    "description": "A cheerful single-line kite sized for kids ages 5+. Easy assembly, soft edges, and bright colors make first flights stress-free.",
+    "shortDescription": "Easy first kite for young pilots.",
+    "category": "Kids Kites",
+    "size": "Small",
+    "featured": false,
+    "images": ["/products/k501-1.svg"],
+    "specifications": {
+      "material": "Durable nylon",
+      "frame": "Flexible fiberglass",
+      "windRange": "3–10 mph",
+      "lineIncluded": "60 ft handle line",
+      "weight": "120 g"
+    },
+    "createdAt": "2025-11-20"
+  },
+  {
+    "id": "K601",
+    "name": "Tokyo Rokkaku",
+    "price": 165,
+    "description": "Traditional Japanese rokkaku design with modern reinforcement. Stable in moderate winds and stunning in the sky.",
+    "shortDescription": "Traditional rokkaku with modern build.",
+    "category": "International Collection",
+    "size": "Medium",
+    "featured": false,
+    "images": ["/products/k601-1.svg", "/products/k601-2.svg"],
+    "specifications": {
+      "material": "Washi-style ripstop",
+      "frame": "Bamboo",
+      "windRange": "6–16 mph",
+      "lineIncluded": "180 ft line",
+      "weight": "340 g"
+    },
+    "createdAt": "2025-07-05"
+  },
+  {
+    "id": "K602",
+    "name": "Brazilian Flow Box",
+    "price": 140,
+    "description": "Inspired by Brazilian box-kite traditions, this design offers a unique silhouette and steady lift in coastal breezes.",
+    "shortDescription": "Box-kite design for coastal breezes.",
+    "category": "International Collection",
+    "size": "Large",
+    "featured": false,
+    "images": ["/products/k602-1.svg"],
+    "createdAt": "2025-10-01"
+  }
+]
