@@ -1,6 +1,6 @@
 import type { Product } from "@/types/product";
 
-export const ADMIN_STORAGE_KEY = "knite-admin-products";
+export const ADMIN_STORAGE_KEY = "veltosports-admin-products";
 
 export function loadProductsFromStorage(
   fallback: Product[],

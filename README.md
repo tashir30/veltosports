@@ -1,119 +1,89 @@
-# Knite Kites — Static Catalog Website
+# Veltosports — Static Kite Catalog
 
-A production-ready **static** kite catalog built with Next.js, TypeScript, and Tailwind CSS. Products are loaded from local JSON files. Customers browse the catalog and order via **WhatsApp** (no backend, no database).
+Production-ready **static** kite catalog for [Veltosports](https://github.com/tashir30/veltosports). Built with Next.js, TypeScript, and Tailwind CSS. Products load from local JSON; customers order via **WhatsApp**.
+
+**Live site (after deploy):** [https://tashir30.github.io/veltosports/](https://tashir30.github.io/veltosports/)
 
 ## Features
 
 - Home page with hero, featured products, categories, reviews, Instagram CTA
-- Full catalog with search, category filter, and price/date sorting
-- Product detail pages with gallery, specs, YouTube embed, QR codes, and reviews
-- Dynamic WhatsApp order links: `Hi, I want to order {name} (ID:{id})`
-- QR codes for WhatsApp orders and product pages
-- Client-side admin at `/admin` with JSON export for deployment
-- SEO: meta tags, Open Graph, sitemap, robots.txt, Product JSON-LD
+- Catalog with search, category filter, and sorting
+- Product pages with gallery, specs, YouTube embed, QR codes, reviews
+- WhatsApp order links: `Hi, I want to order {name} (ID:{id})`
+- Admin at `/admin` with JSON export for redeploy
+- SEO: meta tags, Open Graph, sitemap, Product JSON-LD
 
 ## Tech stack
 
-- Next.js 16 (App Router) with `output: "export"`
-- TypeScript
-- Tailwind CSS v4
-- [qrcode](https://www.npmjs.com/package/qrcode) for client-side QR generation
+- Next.js 16 (App Router), `output: "export"`
+- TypeScript, Tailwind CSS v4
+- GitHub Pages (`basePath`: `/veltosports`)
 
 ## Project structure
 
 ```
-knite/
-├── app/                 # Routes (static pages)
-├── components/          # UI components
-├── data/                # products.json, categories.json, reviews.json, site.json
-├── public/products/     # Product & category images
-├── types/               # TypeScript interfaces
-├── utils/               # Products, WhatsApp, SEO, admin helpers
-└── scripts/             # Placeholder image generator
+veltosports/
+├── app/
+├── components/
+├── data/                # site.json, products.json, …
+├── public/products/
+├── types/
+├── utils/
+└── .github/workflows/   # GitHub Pages deploy
 ```
 
 ## Getting started
 
-### Prerequisites
-
-- Node.js 20+
-- npm
-
-### Installation
-
 ```bash
-cd knite
 npm install
-npm run generate:assets   # optional — creates SVG placeholders
+npm run generate:assets
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Local dev URL: [http://localhost:3000/veltosports/](http://localhost:3000/veltosports/)
 
 ### Configuration
 
-Edit **`data/site.json`** before going live:
+Edit **`data/site.json`**:
 
-| Field | Description |
-|-------|-------------|
-| `whatsappPhone` | Country code + number, no `+` (e.g. `15551234567`) |
-| `instagramUrl` | Your Instagram profile URL |
-| `siteUrl` | Production URL (used in SEO, sitemap, QR product links) |
-| `businessName`, `tagline`, `description` | Branding copy |
+| Field | Example |
+|-------|---------|
+| `whatsappPhone` | `15551234567` (country code, no `+`) |
+| `instagramUrl` | Your Instagram profile |
+| `siteUrl` | `https://tashir30.github.io/veltosports` |
+| `businessName` | `Veltosports` |
 
-### Products
+## Deploy to GitHub Pages
 
-Edit **`data/products.json`** or use **`/admin`**:
+Repo: **https://github.com/tashir30/veltosports**
 
-1. Add/edit/delete products in the browser
-2. Click **Export products.json**
-3. Replace `data/products.json` in the repo
-4. Add image files under `public/products/` (paths must match JSON)
-5. Run `npm run build` and redeploy
+1. Push this project to the `main` branch.
+2. On GitHub: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+3. Push to `main` (or run the **Deploy to GitHub Pages** workflow manually).
+4. Site will be at **https://tashir30.github.io/veltosports/**
 
-> **Note:** A deployed static site cannot write to the server filesystem. Admin changes persist in `localStorage` until you export and commit the updated JSON.
+The workflow is in `.github/workflows/deploy.yml`.
 
-### Images
+### Update products
 
-- Place files in `public/products/`
-- Reference them in JSON as `/products/your-file.jpg`
-- Run `npm run generate:assets` for demo SVG placeholders
+1. Use `/admin` or edit `data/products.json`
+2. Export JSON from admin if needed; replace `data/products.json`
+3. Add images under `public/products/`
+4. Commit and push — Actions redeploys automatically
 
 ## Scripts
 
 | Command | Description |
 |---------|-------------|
-| `npm run dev` | Development server |
+| `npm run dev` | Dev server at `/veltosports/` |
 | `npm run build` | Static export to `out/` |
-| `npm run start` | Serves production build (after `next build` without export, use `npx serve out` for static) |
+| `npm run generate:assets` | SVG placeholders |
 | `npm run lint` | ESLint |
-| `npm run generate:assets` | Generate SVG placeholders |
 
-## Deployment
+## Custom domain
 
-### Vercel
-
-1. Import the `knite` repository
-2. Framework preset: **Next.js**
-3. Build command: `npm run build`
-4. Output: Next.js static export is written to `out/` automatically
-
-### Cloudflare Pages
-
-- Build command: `npm run build`
-- Build output directory: `out`
-
-Update `siteUrl` in `data/site.json` to your production domain before deploying.
-
-## WhatsApp link format
-
-```
-https://wa.me/{phone}?text=Hi,%20I%20want%20to%20order%20{ProductName}%20(ID:{ProductId})
-```
-
-Example: **Sky Fighter Pro (ID:K101)**
+If you add a custom domain on GitHub Pages, update `siteUrl` in `data/site.json` and adjust `NEXT_PUBLIC_BASE_PATH` / `basePath` in `next.config.ts` (use `""` or `/` for root hosting).
 
 ## License
 
-Private / demo project for Knite Kites.
-
+Private project for Veltosports.

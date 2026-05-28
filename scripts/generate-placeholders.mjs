@@ -24,7 +24,7 @@ function svg(label, colors) {
 
 const files = {
   "placeholder.svg": ["Placeholder", ["#bae6fd", "#0284c7", "#0c4a6e"]],
-  "hero-1.svg": ["Knite Kites", ["#0c4a6e", "#38bdf8", "#fff"]],
+  "hero-1.svg": ["Veltosports", ["#0c4a6e", "#38bdf8", "#fff"]],
   "hero-2.svg": ["Fly Higher", ["#164e63", "#22d3ee", "#fff"]],
   "hero-3.svg": ["Worldwide", ["#1e3a5f", "#60a5fa", "#fff"]],
   "cat-fighter.svg": ["Fighter", ["#fee2e2", "#dc2626", "#7f1d1d"]],
@@ -56,7 +56,7 @@ const logo = `<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" v
   <rect width="128" height="128" rx="24" fill="#0284c7"/>
   <path d="M64 24 L88 56 L64 48 L40 56 Z" fill="#fff"/>
   <path d="M64 48 L64 96" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
-  <text x="64" y="118" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#fff">KNITE</text>
+  <text x="64" y="118" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" font-weight="700" fill="#fff">VELTO</text>
 </svg>`;
 
 writeFileSync(join(__dirname, "..", "public", "logo.svg"), logo);
