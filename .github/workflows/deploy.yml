@@ -27,9 +27,8 @@ jobs:
 
       - run: npm ci
       - run: npm run generate:assets
-      - env:
-          NEXT_PUBLIC_BASE_PATH: /veltosports
-        run: npm run build
+      # Custom domain veltosports.in — no basePath (root hosting)
+      - run: npm run build
 
       - uses: actions/upload-pages-artifact@v3
         with:

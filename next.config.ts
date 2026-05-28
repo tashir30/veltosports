@@ -1,16 +1,24 @@
 import type { NextConfig } from "next";
 
-/** GitHub Pages project site: https://tashir30.github.io/veltosports/ */
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "/veltosports";
+/**
+ * Custom domain (veltosports.in): leave unset or NEXT_PUBLIC_BASE_PATH=""
+ * GitHub project URL only (username.github.io/veltosports): set NEXT_PUBLIC_BASE_PATH=/veltosports
+ */
+const rawBase = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+const basePath = rawBase.replace(/\/$/, "");
 
 const nextConfig: NextConfig = {
   output: "export",
   trailingSlash: true,
-  basePath,
-  assetPrefix: `${basePath}/`,
   images: {
     unoptimized: true,
   },
+  ...(basePath
+    ? {
+        basePath,
+        assetPrefix: `${basePath}/`,
+      }
+    : {}),
 };
 
 export default nextConfig;

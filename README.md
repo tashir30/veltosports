@@ -2,7 +2,7 @@
 
 Production-ready **static** kite catalog for [Veltosports](https://github.com/tashir30/veltosports). Built with Next.js, TypeScript, and Tailwind CSS. Products load from local JSON; customers order via **WhatsApp**.
 
-**Live site (after deploy):** [https://tashir30.github.io/veltosports/](https://tashir30.github.io/veltosports/)
+**Live site:** [https://veltosports.in](https://veltosports.in)
 
 ## Features
 
@@ -17,7 +17,7 @@ Production-ready **static** kite catalog for [Veltosports](https://github.com/ta
 
 - Next.js 16 (App Router), `output: "export"`
 - TypeScript, Tailwind CSS v4
-- GitHub Pages (`basePath`: `/veltosports`)
+- GitHub Pages + custom domain `veltosports.in` (no `basePath`)
 
 ## Project structure
 
@@ -40,7 +40,7 @@ npm run generate:assets
 npm run dev
 ```
 
-Local dev URL: [http://localhost:3000/veltosports/](http://localhost:3000/veltosports/)
+Local dev URL: [http://localhost:3000/](http://localhost:3000/)
 
 ### Configuration
 
@@ -50,7 +50,7 @@ Edit **`data/site.json`**:
 |-------|---------|
 | `whatsappPhone` | `15551234567` (country code, no `+`) |
 | `instagramUrl` | Your Instagram profile |
-| `siteUrl` | `https://tashir30.github.io/veltosports` |
+| `siteUrl` | `https://veltosports.in` |
 | `businessName` | `Veltosports` |
 
 ## Deploy to GitHub Pages
@@ -60,7 +60,7 @@ Repo: **https://github.com/tashir30/veltosports**
 1. Push this project to the `main` branch.
 2. On GitHub: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
 3. Push to `main` (or run the **Deploy to GitHub Pages** workflow manually).
-4. Site will be at **https://tashir30.github.io/veltosports/**
+4. Site will be at **https://veltosports.in** (or your custom domain)
 
 The workflow is in `.github/workflows/deploy.yml`.
 
@@ -75,14 +75,14 @@ The workflow is in `.github/workflows/deploy.yml`.
 
 | Command | Description |
 |---------|-------------|
-| `npm run dev` | Dev server at `/veltosports/` |
+| `npm run dev` | Dev server at `http://localhost:3000/` |
 | `npm run build` | Static export to `out/` |
 | `npm run generate:assets` | SVG placeholders |
 | `npm run lint` | ESLint |
 
 ## Custom domain
 
-If you add a custom domain on GitHub Pages, update `siteUrl` in `data/site.json` and adjust `NEXT_PUBLIC_BASE_PATH` / `basePath` in `next.config.ts` (use `""` or `/` for root hosting).
+For **github.io/veltosports** only (no custom domain), build with `NEXT_PUBLIC_BASE_PATH=/veltosports`. Custom domains like **veltosports.in** must use an empty base path (default).
 
 ## License
 
