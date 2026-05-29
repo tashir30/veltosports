@@ -1,6 +1,8 @@
+import type { ReactNode } from "react";
+
 interface WhatsAppButtonProps {
   href: string;
-  label?: string;
+  label?: ReactNode;
   variant?: "primary" | "outline";
   className?: string;
 }
@@ -34,7 +36,7 @@ export function WhatsAppButton({
 function WhatsAppIcon() {
   return (
     <svg
-      className="h-5 w-5 shrink-0"
+      className="h-4 w-4 shrink-0 sm:h-5 sm:w-5"
       viewBox="0 0 24 24"
       fill="currentColor"
       aria-hidden="true"

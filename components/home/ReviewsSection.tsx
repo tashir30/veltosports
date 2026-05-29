@@ -8,7 +8,7 @@ interface ReviewsSectionProps {
 
 export function ReviewsSection({ reviews }: ReviewsSectionProps) {
   return (
-    <section className="bg-white py-16 sm:py-20">
+    <section className="bg-white py-10 sm:py-16 lg:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionTitle
           title="Customer Reviews"

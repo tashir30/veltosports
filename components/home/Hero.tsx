@@ -22,7 +22,7 @@ export function Hero({ site }: HeroProps) {
   }, [images.length]);
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-sky-900 via-sky-800 to-cyan-700 text-white">
+    <section className="relative max-h-[min(70vh,520px)] overflow-hidden bg-gradient-to-br from-sky-900 via-sky-800 to-cyan-700 text-white sm:max-h-none">
       <div className="absolute inset-0 opacity-30">
         {images.map((src, i) => (
           <Image
@@ -37,29 +37,29 @@ export function Hero({ site }: HeroProps) {
           />
         ))}
       </div>
-      <div className="relative mx-auto flex max-w-7xl flex-col items-center gap-8 px-4 py-20 text-center sm:px-6 sm:py-28 lg:px-8">
+      <div className="relative mx-auto flex max-w-7xl flex-col items-center gap-4 px-4 py-10 text-center sm:gap-8 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
         <Image
           src={site.logo}
           alt={`${site.businessName} logo`}
-          width={80}
-          height={80}
-          className="rounded-2xl bg-white/10 p-2 backdrop-blur"
+          width={64}
+          height={64}
+          className="h-12 w-12 rounded-2xl bg-white/10 p-1.5 backdrop-blur sm:h-16 sm:w-16 sm:p-2"
         />
         <div>
-          <p className="text-sm font-semibold uppercase tracking-widest text-sky-200">
+          <p className="text-xs font-semibold uppercase tracking-widest text-sky-200 sm:text-sm">
             {site.businessName}
           </p>
-          <h1 className="mt-3 text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
+          <h1 className="mt-2 text-2xl font-extrabold tracking-tight sm:mt-3 sm:text-4xl lg:text-5xl">
             {site.tagline}
           </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-sky-100">
+          <p className="mx-auto mt-2 max-w-2xl line-clamp-3 text-sm text-sky-100 sm:mt-4 sm:line-clamp-none sm:text-base lg:text-lg">
             {site.description}
           </p>
         </div>
-        <div className="flex flex-wrap justify-center gap-4">
+        <div className="flex w-full max-w-md flex-col gap-2 sm:max-w-none sm:flex-row sm:justify-center sm:gap-4">
           <Link
             href="/catalog/"
-            className="rounded-full bg-white px-8 py-3 text-sm font-bold text-sky-900 shadow-lg transition hover:bg-sky-50"
+            className="rounded-full bg-white px-5 py-2.5 text-center text-xs font-bold text-sky-900 shadow-lg transition hover:bg-sky-50 sm:px-8 sm:py-3 sm:text-sm"
           >
             Browse Catalog
           </Link>
@@ -67,7 +67,7 @@ export function Hero({ site }: HeroProps) {
             href={site.instagramUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full border-2 border-white/80 px-8 py-3 text-sm font-bold transition hover:bg-white/10"
+            className="rounded-full border-2 border-white/80 px-5 py-2.5 text-center text-xs font-bold transition hover:bg-white/10 sm:px-8 sm:py-3 sm:text-sm"
           >
             Follow on Instagram
           </a>
