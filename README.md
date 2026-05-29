@@ -1,119 +1,69 @@
-# Knite Kites — Static Catalog Website
+# Veltosports — Static Kite Catalog
 
-A production-ready **static** kite catalog built with Next.js, TypeScript, and Tailwind CSS. Products are loaded from local JSON files. Customers browse the catalog and order via **WhatsApp** (no backend, no database).
+Read-only static site. All content comes from JSON in GitHub. **Only you** can change the catalog by editing files in the repo and pushing — visitors cannot edit anything on the live site.
 
-## Features
+**Live site:** [https://veltosports.in](https://veltosports.in)  
+**Repo:** [github.com/tashir30/veltosports](https://github.com/tashir30/veltosports)
 
-- Home page with hero, featured products, categories, reviews, Instagram CTA
-- Full catalog with search, category filter, and price/date sorting
-- Product detail pages with gallery, specs, YouTube embed, QR codes, and reviews
-- Dynamic WhatsApp order links: `Hi, I want to order {name} (ID:{id})`
-- QR codes for WhatsApp orders and product pages
-- Client-side admin at `/admin` with JSON export for deployment
-- SEO: meta tags, Open Graph, sitemap, robots.txt, Product JSON-LD
+## How to update products (GitHub workflow)
 
-## Tech stack
+There is **no admin page** on the website.
 
-- Next.js 16 (App Router) with `output: "export"`
-- TypeScript
-- Tailwind CSS v4
-- [qrcode](https://www.npmjs.com/package/qrcode) for client-side QR generation
+1. Open [data/catalog.json](https://github.com/tashir30/veltosports/blob/main/data/catalog.json) on GitHub  
+   **Or** clone the repo and edit locally.
+2. Change `products`, `categories`, or `reviews` (see [docs/CATALOG_FIELDS.md](docs/CATALOG_FIELDS.md)).
+3. If you add images, put files in **`public/products/`** and use matching paths in JSON (e.g. `/products/k103-1.jpg`).
+4. Commit and push to **`main`**.
+5. GitHub Actions runs `validate:catalog`, builds, and deploys to **veltosports.in**.
 
-## Project structure
-
-```
-knite/
-├── app/                 # Routes (static pages)
-├── components/          # UI components
-├── data/                # products.json, categories.json, reviews.json, site.json
-├── public/products/     # Product & category images
-├── types/               # TypeScript interfaces
-├── utils/               # Products, WhatsApp, SEO, admin helpers
-└── scripts/             # Placeholder image generator
-```
-
-## Getting started
-
-### Prerequisites
-
-- Node.js 20+
-- npm
-
-### Installation
+### Download → edit → upload (local)
 
 ```bash
-cd knite
+git clone https://github.com/tashir30/veltosports.git
+cd veltosports
+# edit data/catalog.json
+npm run validate:catalog   # optional check
+git add data/catalog.json public/products/
+git commit -m "Update catalog"
+git push
+```
+
+### Edit directly on GitHub
+
+1. Repo → `data/catalog.json` → pencil (Edit)
+2. Save → Commit to `main`
+
+## What lives where
+
+| File | Purpose |
+|------|---------|
+| `data/catalog.json` | Products, categories, reviews (source of truth) |
+| `data/catalog.template.json` | Example structure for new items |
+| `data/site.json` | WhatsApp, Instagram, branding |
+| `public/products/` | Product and category images |
+
+## Local development
+
+```bash
 npm install
-npm run generate:assets   # optional — creates SVG placeholders
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
-
-### Configuration
-
-Edit **`data/site.json`** before going live:
-
-| Field | Description |
-|-------|-------------|
-| `whatsappPhone` | Country code + number, no `+` (e.g. `15551234567`) |
-| `instagramUrl` | Your Instagram profile URL |
-| `siteUrl` | Production URL (used in SEO, sitemap, QR product links) |
-| `businessName`, `tagline`, `description` | Branding copy |
-
-### Products
-
-Edit **`data/products.json`** or use **`/admin`**:
-
-1. Add/edit/delete products in the browser
-2. Click **Export products.json**
-3. Replace `data/products.json` in the repo
-4. Add image files under `public/products/` (paths must match JSON)
-5. Run `npm run build` and redeploy
-
-> **Note:** A deployed static site cannot write to the server filesystem. Admin changes persist in `localStorage` until you export and commit the updated JSON.
-
-### Images
-
-- Place files in `public/products/`
-- Reference them in JSON as `/products/your-file.jpg`
-- Run `npm run generate:assets` for demo SVG placeholders
+Open [http://localhost:3000](http://localhost:3000).  
+Your local site reflects whatever is in `data/catalog.json` on disk.
 
 ## Scripts
 
 | Command | Description |
 |---------|-------------|
-| `npm run dev` | Development server |
+| `npm run validate:catalog` | Check JSON before you push |
 | `npm run build` | Static export to `out/` |
-| `npm run start` | Serves production build (after `next build` without export, use `npx serve out` for static) |
-| `npm run lint` | ESLint |
-| `npm run generate:assets` | Generate SVG placeholders |
+| `npm run dev` | Local preview |
 
-## Deployment
+## Security note
 
-### Vercel
+The static site has **no backend** and **no write API**. Nobody can change your live catalog without access to your GitHub repository. Keep your GitHub account and repo access secure.
 
-1. Import the `knite` repository
-2. Framework preset: **Next.js**
-3. Build command: `npm run build`
-4. Output: Next.js static export is written to `out/` automatically
+## Tech stack
 
-### Cloudflare Pages
-
-- Build command: `npm run build`
-- Build output directory: `out`
-
-Update `siteUrl` in `data/site.json` to your production domain before deploying.
-
-## WhatsApp link format
-
-```
-https://wa.me/{phone}?text=Hi,%20I%20want%20to%20order%20{ProductName}%20(ID:{ProductId})
-```
-
-Example: **Sky Fighter Pro (ID:K101)**
-
-## License
-
-Private / demo project for Knite Kites.
-
+Next.js 16 (static export), TypeScript, Tailwind CSS v4, GitHub Pages, custom domain `veltosports.in`.

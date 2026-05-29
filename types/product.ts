@@ -46,6 +46,13 @@ export interface Category {
   image: string;
 }
 
+export interface Catalog {
+  version: number;
+  products: Product[];
+  categories: Category[];
+  reviews: Review[];
+}
+
 export interface SiteConfig {
   businessName: string;
   tagline: string;

@@ -27,6 +27,7 @@ jobs:
 
       - run: npm ci
       - run: npm run generate:assets
+      - run: npm run validate:catalog
       # Custom domain veltosports.in — no basePath (root hosting)
       - run: npm run build
 

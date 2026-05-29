@@ -15,7 +15,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/`, changeFrequency: "weekly", priority: 1 },
     { url: `${base}/catalog/`, changeFrequency: "weekly", priority: 0.9 },
     { url: `${base}/categories/`, changeFrequency: "weekly", priority: 0.8 },
-    { url: `${base}/admin/`, changeFrequency: "monthly", priority: 0.1 },
   ];
 
   const productRoutes: MetadataRoute.Sitemap = getAllProducts().map(

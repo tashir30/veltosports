@@ -1,0 +1,111 @@
+{
+  "$id": "https://veltosports.in/schemas/catalog.schema.json",
+  "title": "Veltosports Catalog",
+  "type": "object",
+  "required": ["version", "products", "categories", "reviews"],
+  "additionalProperties": false,
+  "properties": {
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "products": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/product" }
+    },
+    "categories": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/category" }
+    },
+    "reviews": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/review" }
+    }
+  },
+  "$defs": {
+    "product": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "price",
+        "description",
+        "category",
+        "size",
+        "featured",
+        "images"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^K[A-Z0-9]{2,8}$"
+        },
+        "name": { "type": "string", "minLength": 1, "maxLength": 120 },
+        "price": { "type": "number", "minimum": 0, "maximum": 100000 },
+        "description": { "type": "string", "minLength": 1, "maxLength": 2000 },
+        "shortDescription": { "type": "string", "maxLength": 300 },
+        "category": { "type": "string", "minLength": 1 },
+        "size": { "type": "string", "minLength": 1, "maxLength": 50 },
+        "featured": { "type": "boolean" },
+        "images": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 10,
+          "items": {
+            "type": "string",
+            "pattern": "^/products/[a-zA-Z0-9._-]+$"
+          }
+        },
+        "youtube": { "type": "string", "maxLength": 500 },
+        "specifications": {
+          "type": "object",
+          "additionalProperties": { "type": "string", "maxLength": 200 }
+        },
+        "createdAt": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        }
+      }
+    },
+    "category": {
+      "type": "object",
+      "required": ["name", "slug", "description", "image"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string", "minLength": 1, "maxLength": 80 },
+        "slug": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "description": { "type": "string", "minLength": 1, "maxLength": 500 },
+        "image": {
+          "type": "string",
+          "pattern": "^/products/[a-zA-Z0-9._-]+$"
+        }
+      }
+    },
+    "review": {
+      "type": "object",
+      "required": ["id", "author", "rating", "text", "date"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^R[A-Z0-9]{1,8}$"
+        },
+        "author": { "type": "string", "minLength": 1, "maxLength": 80 },
+        "rating": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "text": { "type": "string", "minLength": 1, "maxLength": 1000 },
+        "productId": {
+          "type": "string",
+          "pattern": "^K[A-Z0-9]{2,8}$"
+        },
+        "date": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        }
+      }
+    }
+  }
+}

@@ -1,8 +1,7 @@
-import productsData from "@/data/products.json";
-import categoriesData from "@/data/categories.json";
-import reviewsData from "@/data/reviews.json";
+import catalogData from "@/data/catalog.json";
 import siteData from "@/data/site.json";
 import type {
+  Catalog,
   Category,
   Product,
   ProductFilters,
@@ -10,10 +9,16 @@ import type {
   SiteConfig,
 } from "@/types/product";
 
-const products = productsData as Product[];
-const categories = categoriesData as Category[];
-const reviews = reviewsData as Review[];
+const catalog = catalogData as Catalog;
 const site = siteData as SiteConfig;
+
+const products = catalog.products;
+const categories = catalog.categories;
+const reviews = catalog.reviews;
+
+export function getCatalog(): Catalog {
+  return catalog;
+}
 
 export function getSiteConfig(): SiteConfig {
   return site;

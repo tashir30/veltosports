@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "products": [
+    {
+      "id": "K999",
+      "name": "Example Kite",
+      "price": 99,
+      "description": "Full product description shown on the product detail page.",
+      "shortDescription": "Short line on catalog cards (desktop).",
+      "category": "Fighter Kites",
+      "size": "Medium",
+      "featured": false,
+      "images": ["/products/placeholder.svg"],
+      "youtube": "",
+      "specifications": {
+        "material": "Ripstop nylon",
+        "frame": "Fiberglass",
+        "windRange": "6–18 mph",
+        "lineIncluded": "150 ft line",
+        "weight": "300 g"
+      },
+      "createdAt": "2026-01-01"
+    }
+  ],
+  "categories": [
+    {
+      "name": "Fighter Kites",
+      "slug": "fighter-kites",
+      "description": "Category blurb for home and category pages.",
+      "image": "/products/cat-fighter.svg"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "R99",
+      "author": "Customer Name",
+      "rating": 5,
+      "text": "Review text shown on home and product pages.",
+      "productId": "K999",
+      "date": "2026-01-15"
+    }
+  ]
+}

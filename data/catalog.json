@@ -1,0 +1,259 @@
+{
+  "version": 1,
+  "products": [
+    {
+      "id": "K101",
+      "name": "Sky Fighter Pro",
+      "price": 250,
+      "description": "The Sky Fighter Pro is our flagship fighter kite engineered for aggressive cuts and stable high-wind flight. Hand-tuned spars and premium ripstop deliver tournament-level performance for serious pilots.",
+      "shortDescription": "High flying fighter kite with premium ripstop sail.",
+      "category": "Fighter Kites",
+      "size": "Medium",
+      "featured": true,
+      "images": [
+        "/products/k101-1.svg",
+        "/products/k101-2.svg"
+      ],
+      "youtube": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      "specifications": {
+        "material": "Ripstop nylon",
+        "frame": "Carbon fiber",
+        "windRange": "8–25 mph",
+        "lineIncluded": "200 ft braided line",
+        "weight": "320 g"
+      },
+      "createdAt": "2025-11-01"
+    },
+    {
+      "id": "K102",
+      "name": "Crimson Striker",
+      "price": 189,
+      "description": "A bold red fighter kite with responsive handling and reinforced leading edges. Ideal for intermediate pilots stepping into competitive flying.",
+      "shortDescription": "Responsive fighter kite for intermediate pilots.",
+      "category": "Fighter Kites",
+      "size": "Small",
+      "featured": true,
+      "images": [
+        "/products/k102-1.svg"
+      ],
+      "youtube": "",
+      "specifications": {
+        "material": "Ripstop polyester",
+        "frame": "Fiberglass",
+        "windRange": "6–18 mph",
+        "lineIncluded": "150 ft line",
+        "weight": "280 g"
+      },
+      "createdAt": "2025-10-15"
+    },
+    {
+      "id": "K201",
+      "name": "Goldcrest Elite",
+      "price": 420,
+      "description": "Luxury gold-trimmed premium kite with hand-painted details and a velvet storage sleeve. A centerpiece for collectors and display flying.",
+      "shortDescription": "Luxury collector kite with hand-painted details.",
+      "category": "Premium Kites",
+      "size": "Large",
+      "featured": true,
+      "images": [
+        "/products/k201-1.svg",
+        "/products/k201-2.svg"
+      ],
+      "specifications": {
+        "material": "Silk-blend sail",
+        "frame": "Bamboo composite",
+        "windRange": "5–15 mph",
+        "lineIncluded": "Premium silk line",
+        "weight": "450 g"
+      },
+      "createdAt": "2025-09-20"
+    },
+    {
+      "id": "K301",
+      "name": "Rainbow Festival Delta",
+      "price": 75,
+      "description": "A vibrant delta kite that soars effortlessly in light winds. Perfect for picnics, beach days, and festival weekends with the whole family.",
+      "shortDescription": "Colorful delta kite for light-wind fun.",
+      "category": "Festival Kites",
+      "size": "Large",
+      "featured": false,
+      "images": [
+        "/products/k301-1.svg"
+      ],
+      "specifications": {
+        "material": "Polyester",
+        "frame": "Fiberglass",
+        "windRange": "4–12 mph",
+        "lineIncluded": "100 ft line",
+        "weight": "210 g"
+      },
+      "createdAt": "2025-12-01"
+    },
+    {
+      "id": "K401",
+      "name": "Apex Competition X",
+      "price": 310,
+      "description": "Tournament-tuned competition kite with precision balance and minimal drag. Used by regional champions for precision and endurance events.",
+      "shortDescription": "Tournament-tuned kite for precision events.",
+      "category": "Competition Kites",
+      "size": "Medium",
+      "featured": true,
+      "images": [
+        "/products/k401-1.svg"
+      ],
+      "youtube": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      "specifications": {
+        "material": "High-density ripstop",
+        "frame": "Carbon ultra-light",
+        "windRange": "10–28 mph",
+        "lineIncluded": "Competition reel + 250 ft line",
+        "weight": "295 g"
+      },
+      "createdAt": "2025-08-10"
+    },
+    {
+      "id": "K501",
+      "name": "Little Cloud",
+      "price": 35,
+      "description": "A cheerful single-line kite sized for kids ages 5+. Easy assembly, soft edges, and bright colors make first flights stress-free.",
+      "shortDescription": "Easy first kite for young pilots.",
+      "category": "Kids Kites",
+      "size": "Small",
+      "featured": false,
+      "images": [
+        "/products/k501-1.svg"
+      ],
+      "specifications": {
+        "material": "Durable nylon",
+        "frame": "Flexible fiberglass",
+        "windRange": "3–10 mph",
+        "lineIncluded": "60 ft handle line",
+        "weight": "120 g"
+      },
+      "createdAt": "2025-11-20"
+    },
+    {
+      "id": "K601",
+      "name": "Tokyo Rokkaku",
+      "price": 165,
+      "description": "Traditional Japanese rokkaku design with modern reinforcement. Stable in moderate winds and stunning in the sky.",
+      "shortDescription": "Traditional rokkaku with modern build.",
+      "category": "International Collection",
+      "size": "Medium",
+      "featured": false,
+      "images": [
+        "/products/k601-1.svg",
+        "/products/k601-2.svg"
+      ],
+      "specifications": {
+        "material": "Washi-style ripstop",
+        "frame": "Bamboo",
+        "windRange": "6–16 mph",
+        "lineIncluded": "180 ft line",
+        "weight": "340 g"
+      },
+      "createdAt": "2025-07-05"
+    },
+    {
+      "id": "K602",
+      "name": "Brazilian Flow Box",
+      "price": 140,
+      "description": "Inspired by Brazilian box-kite traditions, this design offers a unique silhouette and steady lift in coastal breezes.",
+      "shortDescription": "Box-kite design for coastal breezes.",
+      "category": "International Collection",
+      "size": "Large",
+      "featured": false,
+      "images": [
+        "/products/k602-1.svg"
+      ],
+      "createdAt": "2025-10-01"
+    }
+  ],
+  "categories": [
+    {
+      "name": "Fighter Kites",
+      "slug": "fighter-kites",
+      "description": "High-performance fighter kites built for speed, control, and competitive flying.",
+      "image": "/products/cat-fighter.svg"
+    },
+    {
+      "name": "Premium Kites",
+      "slug": "premium-kites",
+      "description": "Luxury materials and artisan finishes for collectors and enthusiasts.",
+      "image": "/products/cat-premium.svg"
+    },
+    {
+      "name": "Festival Kites",
+      "slug": "festival-kites",
+      "description": "Colorful designs perfect for celebrations, parks, and family outings.",
+      "image": "/products/cat-festival.svg"
+    },
+    {
+      "name": "Competition Kites",
+      "slug": "competition-kites",
+      "description": "Tournament-ready kites tuned for precision and consistent flight.",
+      "image": "/products/cat-competition.svg"
+    },
+    {
+      "name": "Kids Kites",
+      "slug": "kids-kites",
+      "description": "Lightweight, easy-to-fly kites designed for young pilots.",
+      "image": "/products/cat-kids.svg"
+    },
+    {
+      "name": "International Collection",
+      "slug": "international-collection",
+      "description": "Traditional and modern designs inspired by kite cultures worldwide.",
+      "image": "/products/cat-international.svg"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "R1",
+      "author": "Aisha K.",
+      "rating": 5,
+      "text": "Sky Fighter Pro handles like a dream. WhatsApp ordering was super quick and it arrived in perfect shape.",
+      "productId": "K101",
+      "date": "2025-12-10"
+    },
+    {
+      "id": "R2",
+      "author": "Marco D.",
+      "rating": 5,
+      "text": "Best fighter kite I've owned. The build quality is obvious the moment you unpack it.",
+      "productId": "K102",
+      "date": "2025-11-28"
+    },
+    {
+      "id": "R3",
+      "author": "Priya S.",
+      "rating": 4,
+      "text": "Rainbow Festival Delta was a hit at our family picnic. Kids loved it!",
+      "productId": "K301",
+      "date": "2025-12-05"
+    },
+    {
+      "id": "R4",
+      "author": "James L.",
+      "rating": 5,
+      "text": "Goldcrest Elite is stunning. Veltosports answered all my questions on WhatsApp before I ordered.",
+      "productId": "K201",
+      "date": "2025-10-20"
+    },
+    {
+      "id": "R5",
+      "author": "Elena R.",
+      "rating": 5,
+      "text": "Fast shipping worldwide. Apex Competition X performed flawlessly at my regional meet.",
+      "productId": "K401",
+      "date": "2025-09-15"
+    },
+    {
+      "id": "R6",
+      "author": "Tom H.",
+      "rating": 5,
+      "text": "Professional catalog, easy ordering. I'll be back for more from the International Collection.",
+      "date": "2025-11-01"
+    }
+  ]
+}
