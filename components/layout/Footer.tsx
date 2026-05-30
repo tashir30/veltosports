@@ -11,10 +11,10 @@ export function Footer({ site }: FooterProps) {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="mt-auto border-t border-slate-200 bg-slate-900 text-slate-300">
+    <footer className="mt-auto border-t-4 border-brand-orange bg-brand-navy text-slate-300">
       <div className="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 md:grid-cols-3 lg:px-8">
         <div>
-          <p className="text-lg font-bold text-white">{site.businessName}</p>
+          <p className="font-display text-lg font-bold uppercase tracking-wide text-white">{site.businessName}</p>
           <p className="mt-2 text-sm">{site.tagline}</p>
         </div>
         <div>

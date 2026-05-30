@@ -14,11 +14,11 @@ export default function CatalogPage() {
   return (
     <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
       <div className="mb-10 text-center">
-        <h1 className="text-3xl font-bold text-slate-900 sm:text-4xl">
-          Kite Catalog
+        <h1 className="font-display text-3xl font-bold uppercase tracking-tight text-brand-navy sm:text-4xl">
+          Shop all kites
         </h1>
         <p className="mt-3 text-slate-600">
-          Search, filter, and order any kite directly on WhatsApp.
+          Search, filter, and add to cart — order in one WhatsApp message.
         </p>
       </div>
       <CatalogClient products={products} site={site} />

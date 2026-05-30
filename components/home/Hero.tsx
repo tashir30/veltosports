@@ -22,8 +22,9 @@ export function Hero({ site }: HeroProps) {
   }, [images.length]);
 
   return (
-    <section className="relative max-h-[min(70vh,520px)] overflow-hidden bg-gradient-to-br from-sky-900 via-sky-800 to-cyan-700 text-white sm:max-h-none">
-      <div className="absolute inset-0 opacity-30">
+    <section className="relative max-h-[200px] overflow-hidden bg-brand-navy text-white sm:max-h-[240px] md:max-h-[260px] lg:max-h-[280px] xl:max-h-[300px]">
+      <div className="absolute inset-0 bg-gradient-to-r from-brand-navy via-brand-navy-light/90 to-brand-navy" />
+      <div className="absolute inset-0 opacity-15">
         {images.map((src, i) => (
           <Image
             key={src}
@@ -37,39 +38,33 @@ export function Hero({ site }: HeroProps) {
           />
         ))}
       </div>
-      <div className="relative mx-auto flex max-w-7xl flex-col items-center gap-4 px-4 py-10 text-center sm:gap-8 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
-        <Image
-          src={site.logo}
-          alt={`${site.businessName} logo`}
-          width={64}
-          height={64}
-          className="h-12 w-12 rounded-2xl bg-white/10 p-1.5 backdrop-blur sm:h-16 sm:w-16 sm:p-2"
-        />
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-widest text-sky-200 sm:text-sm">
-            {site.businessName}
+      <div className="absolute bottom-0 left-0 right-0 h-1 bg-brand-orange" aria-hidden="true" />
+      <div className="relative mx-auto flex h-full min-h-0 max-w-7xl flex-col items-center justify-center gap-2 px-4 py-4 text-center sm:gap-3 sm:px-6 sm:py-5 md:flex-row md:items-center md:justify-between md:py-6 md:text-left lg:px-8">
+        <div className="min-w-0 flex-1 md:pr-4">
+          <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-orange sm:text-xs">
+            Veltosports
           </p>
-          <h1 className="mt-2 text-2xl font-extrabold tracking-tight sm:mt-3 sm:text-4xl lg:text-5xl">
+          <h1 className="font-display line-clamp-2 text-lg font-bold uppercase leading-tight tracking-tight sm:text-xl md:text-2xl lg:text-3xl">
             {site.tagline}
           </h1>
-          <p className="mx-auto mt-2 max-w-2xl line-clamp-3 text-sm text-sky-100 sm:mt-4 sm:line-clamp-none sm:text-base lg:text-lg">
+          <p className="mx-auto mt-1 line-clamp-1 max-w-2xl text-sm text-slate-300 sm:text-base md:mx-0">
             {site.description}
           </p>
         </div>
-        <div className="flex w-full max-w-md flex-col gap-2 sm:max-w-none sm:flex-row sm:justify-center sm:gap-4">
+        <div className="flex shrink-0 flex-row items-center gap-2">
           <Link
             href="/catalog/"
-            className="rounded-full bg-white px-5 py-2.5 text-center text-xs font-bold text-sky-900 shadow-lg transition hover:bg-sky-50 sm:px-8 sm:py-3 sm:text-sm"
+            className="rounded-md bg-brand-orange px-4 py-2 text-xs font-bold uppercase tracking-wide text-white shadow-none transition hover:bg-brand-orange-dark sm:px-5 sm:text-sm"
           >
-            Browse Catalog
+            Shop now
           </Link>
           <a
             href={site.instagramUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full border-2 border-white/80 px-5 py-2.5 text-center text-xs font-bold transition hover:bg-white/10 sm:px-8 sm:py-3 sm:text-sm"
+            className="hidden rounded-md border border-white/30 px-4 py-2 text-xs font-semibold uppercase tracking-wide transition hover:bg-white/10 md:inline-flex sm:text-sm"
           >
-            Follow on Instagram
+            Instagram
           </a>
         </div>
       </div>

@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ProductGallery } from "@/components/products/ProductGallery";
+import { ProductPurchaseActions } from "@/components/products/ProductPurchaseActions";
 import { ProductSpecs } from "@/components/products/ProductSpecs";
 import { ProductVideo } from "@/components/products/ProductVideo";
 import { QRCodeDisplay } from "@/components/shared/QRCodeDisplay";
 import { StarRating } from "@/components/shared/StarRating";
-import { WhatsAppButton } from "@/components/shared/WhatsAppButton";
 import {
   formatPrice,
   getAllProducts,
@@ -56,11 +56,11 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <nav className="mb-6 text-sm text-slate-500">
-        <Link href="/" className="hover:text-sky-700">
+        <Link href="/" className="hover:text-brand-orange">
           Home
         </Link>
         <span className="mx-2">/</span>
-        <Link href="/catalog/" className="hover:text-sky-700">
+        <Link href="/catalog/" className="hover:text-brand-orange">
           Catalog
         </Link>
         <span className="mx-2">/</span>
@@ -71,10 +71,10 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
         <ProductGallery images={product.images} productName={product.name} />
 
         <div>
-          <p className="text-sm font-semibold uppercase tracking-wide text-sky-700">
+          <p className="text-sm font-bold uppercase tracking-wide text-brand-orange">
             {product.category}
           </p>
-          <h1 className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">
+          <h1 className="font-display mt-2 text-3xl font-bold uppercase tracking-tight text-brand-navy sm:text-4xl">
             {product.name}
           </h1>
           <p className="mt-4 text-3xl font-bold text-slate-900">
@@ -84,20 +84,19 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
             {product.description}
           </p>
 
-          <div className="mt-8 flex flex-wrap items-start gap-8">
-            <WhatsAppButton href={whatsappUrl} className="text-base" />
-            <div className="flex gap-6">
-              <QRCodeDisplay
-                value={whatsappUrl}
-                size={120}
-                label="WhatsApp order"
-              />
+          <ProductPurchaseActions product={product} site={site} />
+
+          <div className="mt-6 flex gap-6">
+            <QRCodeDisplay
+              value={whatsappUrl}
+              size={120}
+              label="Order link"
+            />
               <QRCodeDisplay
                 value={productUrl}
                 size={120}
                 label="Product page"
               />
-            </div>
           </div>
         </div>
       </div>
