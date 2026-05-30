@@ -1,28 +1,12 @@
+import { toYouTubeEmbedUrl } from "@/utils/youtube";
+
 interface ProductVideoProps {
   youtubeUrl?: string;
   productName: string;
 }
 
-function toEmbedUrl(url: string): string | null {
-  const trimmed = url.trim();
-  if (!trimmed) return null;
-
-  if (trimmed.includes("youtube.com/embed/")) {
-    return trimmed;
-  }
-
-  const watchMatch = trimmed.match(
-    /(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/,
-  );
-  if (watchMatch?.[1]) {
-    return `https://www.youtube.com/embed/${watchMatch[1]}`;
-  }
-
-  return null;
-}
-
 export function ProductVideo({ youtubeUrl, productName }: ProductVideoProps) {
-  const embed = youtubeUrl ? toEmbedUrl(youtubeUrl) : null;
+  const embed = youtubeUrl ? toYouTubeEmbedUrl(youtubeUrl) : null;
   if (!embed) return null;
 
   return (
@@ -34,6 +18,7 @@ export function ProductVideo({ youtubeUrl, productName }: ProductVideoProps) {
           title={`${productName} flying video`}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
+          referrerPolicy="strict-origin-when-cross-origin"
           className="h-full w-full"
         />
       </div>

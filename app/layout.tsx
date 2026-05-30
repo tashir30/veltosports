@@ -22,6 +22,22 @@ const oswald = Oswald({
 
 const site = getSiteConfig();
 
+const isProduction = process.env.NODE_ENV === "production";
+
+const CONTENT_SECURITY_POLICY = [
+  "default-src 'self'",
+  "script-src 'self' 'unsafe-inline'",
+  "style-src 'self' 'unsafe-inline'",
+  "img-src 'self' data:",
+  "font-src 'self'",
+  "frame-src https://www.youtube.com https://www.youtube-nocookie.com",
+  "connect-src 'self'",
+  "object-src 'none'",
+  "base-uri 'self'",
+  "form-action 'self'",
+  "frame-ancestors 'none'",
+].join("; ");
+
 export const metadata: Metadata = buildSiteMetadata(site);
 
 export default function RootLayout({
@@ -31,6 +47,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${dmSans.variable} ${oswald.variable} h-full`}>
+      <head>
+        {isProduction ? (
+          <meta
+            httpEquiv="Content-Security-Policy"
+            content={CONTENT_SECURITY_POLICY}
+          />
+        ) : null}
+        <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
+        <meta name="referrer" content="strict-origin-when-cross-origin" />
+      </head>
       <body className="flex min-h-full flex-col bg-background font-sans text-slate-900 antialiased">
         <AppProviders>
           <Header site={site} />

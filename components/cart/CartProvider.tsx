@@ -15,10 +15,12 @@ import {
   addItemToCart,
   getCartCount,
   loadCartFromStorage,
+  reconcileCartWithCatalog,
   removeItemFromCart,
   saveCartToStorage,
   updateItemQuantity,
 } from "@/utils/cart";
+import { getAllProducts } from "@/utils/products";
 
 interface CartContextValue {
   items: CartItem[];
@@ -37,7 +39,8 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   const [hydrated, setHydrated] = useState(false);
 
   useEffect(() => {
-    setItems(loadCartFromStorage());
+    const stored = loadCartFromStorage();
+    setItems(reconcileCartWithCatalog(stored, getAllProducts()));
     setHydrated(true);
   }, []);
 

@@ -16,6 +16,7 @@ import {
   getSiteConfig,
 } from "@/utils/products";
 import { buildProductJsonLd, buildProductMetadata } from "@/utils/seo";
+import { serializeJsonLd } from "@/utils/safeJsonLd";
 import { buildWhatsAppOrderUrl } from "@/utils/whatsapp";
 
 interface ProductPageProps {
@@ -53,7 +54,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
     <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
       />
       <nav className="mb-6 text-sm text-slate-500">
         <Link href="/" className="hover:text-brand-orange">

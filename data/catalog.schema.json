@@ -57,7 +57,11 @@
             "pattern": "^/products/[a-zA-Z0-9._-]+$"
           }
         },
-        "youtube": { "type": "string", "maxLength": 500 },
+        "youtube": {
+          "type": "string",
+          "maxLength": 500,
+          "pattern": "^(|https://((www\\.)?youtube\\.com/(watch\\?v=|embed/)|youtu\\.be/)[a-zA-Z0-9_-]{11}([?&#][a-zA-Z0-9_=&%-]*)?)$"
+        },
         "specifications": {
           "type": "object",
           "additionalProperties": { "type": "string", "maxLength": 200 }

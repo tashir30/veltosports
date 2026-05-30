@@ -1,0 +1,61 @@
+{
+  "$id": "https://veltosports.in/schemas/site.schema.json",
+  "title": "Veltosports Site Config",
+  "type": "object",
+  "required": [
+    "businessName",
+    "tagline",
+    "description",
+    "whatsappPhone",
+    "instagramUrl",
+    "instagramHandle",
+    "siteUrl",
+    "logo",
+    "currency",
+    "heroImages"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "businessName": { "type": "string", "minLength": 1, "maxLength": 80 },
+    "tagline": { "type": "string", "minLength": 1, "maxLength": 120 },
+    "description": { "type": "string", "minLength": 1, "maxLength": 500 },
+    "whatsappPhone": {
+      "type": "string",
+      "pattern": "^\\+[1-9][0-9]{9,14}$"
+    },
+    "instagramUrl": {
+      "type": "string",
+      "pattern": "^https://(www\\.)?instagram\\.com/[a-zA-Z0-9._-]+/?$"
+    },
+    "instagramHandle": {
+      "type": "string",
+      "pattern": "^@[a-zA-Z0-9._-]{1,30}$"
+    },
+    "siteUrl": {
+      "type": "string",
+      "pattern": "^https://[a-z0-9.-]+/?$"
+    },
+    "logo": {
+      "type": "string",
+      "pattern": "^/(?:logo\\.svg|products/[a-zA-Z0-9._-]+)$"
+    },
+    "currency": {
+      "type": "string",
+      "pattern": "^[A-Z]{3}$"
+    },
+    "email": {
+      "type": "string",
+      "maxLength": 120,
+      "pattern": "^[a-zA-Z0-9._%+\\-]+@[a-zA-Z0-9.\\-]+\\.[a-zA-Z]{2,}$"
+    },
+    "heroImages": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 10,
+      "items": {
+        "type": "string",
+        "pattern": "^/products/[a-zA-Z0-9._-]+$"
+      }
+    }
+  }
+}

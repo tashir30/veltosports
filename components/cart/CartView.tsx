@@ -6,7 +6,8 @@ import { useCart } from "@/components/cart/CartProvider";
 import { CartLineItem } from "@/components/cart/CartLineItem";
 import { WhatsAppButton } from "@/components/shared/WhatsAppButton";
 import { formatPrice } from "@/utils/products";
-import { getCartTotal } from "@/utils/cart";
+import { getCartTotal, reconcileCartWithCatalog } from "@/utils/cart";
+import { getAllProducts } from "@/utils/products";
 import { buildWhatsAppCartOrderUrl } from "@/utils/whatsapp";
 
 interface CartViewProps {
@@ -23,7 +24,9 @@ export function CartView({ site }: CartViewProps) {
     );
   }
 
-  if (items.length === 0) {
+  const reconciledItems = reconcileCartWithCatalog(items, getAllProducts());
+
+  if (reconciledItems.length === 0) {
     return (
       <div className="rounded-2xl border border-dashed border-slate-300 bg-slate-50 py-16 text-center">
         <p className="text-lg font-semibold text-slate-900">Your cart is empty</p>
@@ -38,10 +41,10 @@ export function CartView({ site }: CartViewProps) {
     );
   }
 
-  const total = getCartTotal(items);
+  const total = getCartTotal(reconciledItems);
   const orderUrl = buildWhatsAppCartOrderUrl(
     site.whatsappPhone,
-    items,
+    reconciledItems,
     site.currency,
   );
 
@@ -49,7 +52,7 @@ export function CartView({ site }: CartViewProps) {
     <div className="grid gap-8 lg:grid-cols-3">
       <div className="lg:col-span-2">
         <ul className="divide-y divide-slate-100 rounded-2xl border border-slate-200 bg-white px-4 sm:px-6">
-          {items.map((item) => (
+          {reconciledItems.map((item) => (
             <CartLineItem
               key={item.productId}
               item={item}
@@ -70,7 +73,7 @@ export function CartView({ site }: CartViewProps) {
       <div className="h-fit rounded-2xl border border-slate-200 bg-slate-50 p-6">
         <h2 className="font-display text-lg font-bold uppercase tracking-wide text-brand-navy">Order summary</h2>
         <p className="mt-4 flex justify-between text-slate-700">
-          <span>Subtotal ({items.reduce((n, i) => n + i.quantity, 0)} items)</span>
+          <span>Subtotal ({reconciledItems.reduce((n, i) => n + i.quantity, 0)} items)</span>
           <span className="font-bold text-slate-900">
             {formatPrice(total, site.currency)}
           </span>

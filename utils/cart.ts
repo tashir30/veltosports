@@ -5,6 +5,9 @@ import {
   MAX_CART_LINE_ITEMS,
   MAX_CART_QUANTITY,
 } from "@/types/cart";
+import { sanitizeAssetPath } from "@/utils/security";
+
+const PRODUCT_ID_PATTERN = /^K[A-Z0-9]{2,8}$/i;
 
 export function clampQuantity(qty: number): number {
   return Math.min(MAX_CART_QUANTITY, Math.max(1, Math.floor(qty)));
@@ -95,7 +98,7 @@ export function parseStoredCart(raw: string): CartItem[] {
       name: item.name.slice(0, 120),
       price: Math.min(100000, Math.max(0, item.price)),
       quantity: clampQuantity(item.quantity),
-      image: item.image?.slice(0, 200),
+      image: sanitizeAssetPath(item.image),
     }))
     .slice(0, MAX_CART_LINE_ITEMS);
 }
@@ -114,4 +117,31 @@ export function loadCartFromStorage(): CartItem[] {
 export function saveCartToStorage(items: CartItem[]): void {
   if (typeof window === "undefined") return;
   localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(items));
+}
+
+export function reconcileCartWithCatalog(
+  items: CartItem[],
+  products: Product[],
+): CartItem[] {
+  const byId = new Map(
+    products.map((product) => [product.id.toUpperCase(), product]),
+  );
+
+  return items
+    .filter((item) => PRODUCT_ID_PATTERN.test(item.productId))
+    .flatMap((item) => {
+      const product = byId.get(item.productId.toUpperCase());
+      if (!product) return [];
+
+      return [
+        {
+          productId: product.id,
+          name: product.name.slice(0, 120),
+          price: product.price,
+          quantity: clampQuantity(item.quantity),
+          image: sanitizeAssetPath(product.images[0]),
+        } satisfies CartItem,
+      ];
+    })
+    .slice(0, MAX_CART_LINE_ITEMS);
 }

@@ -26,6 +26,45 @@ function uniqueCheck(items, keyFn, label) {
   return errors;
 }
 
+function containsHtmlBreakout(value) {
+  return typeof value === "string" && /[<>]/.test(value);
+}
+
+function collectCatalogStrings(catalog) {
+  const fields = [];
+  for (const product of catalog.products) {
+    for (const key of [
+      "id",
+      "name",
+      "description",
+      "shortDescription",
+      "category",
+      "size",
+    ]) {
+      if (product[key] !== undefined) {
+        fields.push({ label: `Product ${product.id}.${key}`, value: product[key] });
+      }
+    }
+    if (product.youtube) {
+      fields.push({ label: `Product ${product.id}.youtube`, value: product.youtube });
+    }
+  }
+  for (const category of catalog.categories) {
+    for (const key of ["name", "slug", "description"]) {
+      fields.push({
+        label: `Category ${category.slug}.${key}`,
+        value: category[key],
+      });
+    }
+  }
+  for (const review of catalog.reviews) {
+    for (const key of ["id", "author", "text", "date"]) {
+      fields.push({ label: `Review ${review.id}.${key}`, value: review[key] });
+    }
+  }
+  return fields;
+}
+
 function main() {
   if (!existsSync(catalogPath)) {
     console.error("Missing data/catalog.json");
@@ -86,6 +125,12 @@ function main() {
       errors.push(
         `Review ${review.id}: productId ${review.productId} not in products[]`,
       );
+    }
+  }
+
+  for (const { label, value } of collectCatalogStrings(catalog)) {
+    if (containsHtmlBreakout(value)) {
+      errors.push(`${label}: must not contain < or >`);
     }
   }
 

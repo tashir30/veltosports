@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BrandLogo } from "@/components/shared/BrandLogo";
 import type { SiteConfig } from "@/types/product";
 import { buildGeneralWhatsAppUrl } from "@/utils/whatsapp";
 
@@ -14,7 +15,7 @@ export function Footer({ site }: FooterProps) {
     <footer className="mt-auto border-t-4 border-brand-orange bg-brand-navy text-slate-300">
       <div className="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 md:grid-cols-3 lg:px-8">
         <div>
-          <p className="font-display text-lg font-bold uppercase tracking-wide text-white">{site.businessName}</p>
+          <BrandLogo variant="inverse" size="sm" />
           <p className="mt-2 text-sm">{site.tagline}</p>
         </div>
         <div>

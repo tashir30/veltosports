@@ -13,6 +13,10 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
+  // OneDrive/sync tools corrupt Turbopack's .sst cache files on Windows.
+  experimental: {
+    turbopackFileSystemCacheForDev: false,
+  },
   ...(basePath
     ? {
         basePath,

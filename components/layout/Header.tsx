@@ -1,10 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { useCart } from "@/components/cart/CartProvider";
+import { BrandLogo } from "@/components/shared/BrandLogo";
 import type { SiteConfig } from "@/types/product";
 
 const NAV_LINKS = [
@@ -53,22 +53,11 @@ export function Header({ site }: HeaderProps) {
   return (
     <header className="sticky top-0 z-40 border-b border-slate-200 bg-white/95 backdrop-blur">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
-        <Link href="/" className="flex min-w-0 items-center gap-3">
-          <Image
-            src={site.logo}
-            alt={`${site.businessName} logo`}
-            width={44}
-            height={44}
-            className="h-11 w-11 shrink-0"
-          />
-          <div className="min-w-0">
-            <span className="font-display block truncate text-base font-bold uppercase tracking-tight text-brand-navy sm:text-lg">
-              {site.businessName}
-            </span>
-            <span className="hidden truncate text-xs font-medium text-brand-orange sm:block">
-              {site.tagline}
-            </span>
-          </div>
+        <Link href="/" className="flex min-w-0 items-center gap-2.5">
+          <BrandLogo size="sm" className="shrink-0" />
+          <span className="hidden truncate text-xs font-medium text-brand-orange sm:block sm:max-w-[10rem] md:max-w-xs">
+            {site.tagline}
+          </span>
         </Link>
 
         <nav className="hidden items-center gap-6 md:flex" aria-label="Main">

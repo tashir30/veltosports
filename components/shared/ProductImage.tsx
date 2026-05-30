@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { sanitizeAssetPath } from "@/utils/security";
 
 interface ProductImageProps {
   src: string;
@@ -22,7 +23,8 @@ export function ProductImage({
   className = "",
   priority = false,
 }: ProductImageProps) {
-  const [imgSrc, setImgSrc] = useState(src);
+  const safeSrc = sanitizeAssetPath(src);
+  const [imgSrc, setImgSrc] = useState(safeSrc);
 
   const shared = {
     src: imgSrc,
