@@ -22,7 +22,7 @@ export function Hero({ site }: HeroProps) {
   }, [images.length]);
 
   return (
-    <section className="relative max-h-[200px] overflow-hidden bg-brand-navy text-white sm:max-h-[240px] md:max-h-[260px] lg:max-h-[280px] xl:max-h-[300px]">
+    <section className="relative overflow-hidden bg-brand-navy text-white md:max-h-[280px] lg:max-h-[300px]">
       <div className="absolute inset-0 bg-gradient-to-r from-brand-navy via-brand-navy-light/90 to-brand-navy" />
       <div className="absolute inset-0 opacity-15">
         {images.map((src, i) => (
@@ -39,23 +39,35 @@ export function Hero({ site }: HeroProps) {
         ))}
       </div>
       <div className="absolute bottom-0 left-0 right-0 h-1 bg-brand-orange" aria-hidden="true" />
-      <a
-        href={site.instagramUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label={`Follow us on Instagram ${site.instagramHandle}`}
-        className="absolute right-4 top-1/2 z-10 -translate-y-1/2 rounded-full p-2 text-white/80 transition hover:bg-white/10 hover:text-white sm:right-6 lg:right-8"
-      >
-        <InstagramIcon />
-      </a>
-      <div className="relative mx-auto flex h-full min-h-0 max-w-7xl flex-col items-center justify-center gap-1 px-4 py-4 text-center sm:gap-2 sm:px-6 sm:py-5 lg:px-8">
-        <BrandLogo variant="inverse" size="sm" />
-        <h1 className="font-display line-clamp-2 text-lg font-bold uppercase leading-tight tracking-tight sm:text-xl md:text-2xl">
-          {site.tagline}
-        </h1>
-        <p className="line-clamp-1 max-w-2xl text-sm text-slate-300 sm:text-base">
-          {site.description}
-        </p>
+
+      <div className="relative mx-auto max-w-7xl px-4 py-3 sm:px-6 sm:py-4 lg:px-8">
+        <div className="grid grid-cols-[2.25rem_minmax(0,1fr)_2.25rem] items-start gap-2 sm:grid-cols-[2.5rem_minmax(0,1fr)_2.5rem] sm:gap-3">
+          <div aria-hidden="true" />
+
+          <div className="min-w-0 space-y-1.5 text-center sm:space-y-2">
+            <BrandLogo
+              variant="inverse"
+              size="sm"
+              className="justify-center flex-wrap"
+            />
+            <h1 className="font-display text-sm font-bold uppercase leading-snug tracking-tight sm:text-lg md:text-xl lg:line-clamp-2 lg:text-2xl">
+              {site.tagline}
+            </h1>
+            <p className="text-xs leading-relaxed text-slate-300 sm:text-sm md:line-clamp-2">
+              {site.description}
+            </p>
+          </div>
+
+          <a
+            href={site.instagramUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Follow us on Instagram ${site.instagramHandle}`}
+            className="flex shrink-0 justify-end rounded-full p-1 text-white/85 transition hover:bg-white/10 hover:text-white sm:p-1.5"
+          >
+            <InstagramIcon />
+          </a>
+        </div>
       </div>
     </section>
   );

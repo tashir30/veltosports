@@ -28,7 +28,7 @@ export function BrandLogo({
 
   return (
     <span
-      className={`font-display inline-flex items-baseline gap-1.5 font-bold uppercase sm:gap-2 ${className}`}
+      className={`font-display inline-flex flex-wrap items-baseline justify-center gap-x-1.5 gap-y-0.5 font-bold uppercase sm:gap-x-2 ${className}`}
       aria-label="VELTO Sports"
     >
       <span className={`inline-flex ${veltoSizeClasses[size]}`}>
